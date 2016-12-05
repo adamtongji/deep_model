@@ -90,9 +90,9 @@ def two_layer_net(X, model, y=None, reg=0.0, verbose=False):
 
   # 计算tricks(保证运算稳定性)，先减去最大的得分
   scores = scores - np.expand_dims( np.amax( scores, axis=1 ), axis=1)
-  # softmax
+
   exp_scores = np.exp(scores)
-  # probs: softmax后的预测值
+
   probs = exp_scores / np.sum( exp_scores, axis=1 , keepdims=True)
 
   # 交叉熵损失
